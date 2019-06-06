@@ -10,6 +10,7 @@ ARG VERSION_NGINX=1.16.0
 ARG VERSION_LIBRESSL=2.9.1
 ARG VERSION_ZLIB=1.2.11
 ARG VERSION_PCRE=8.43
+ARG VERSION_MOD_FANCYINDEX=0.4.3
 
 ENV FILE_NGINX="http://nginx.org/download/nginx-${VERSION_NGINX}.tar.gz"
 ENV PATH_NGINX="${BPATH}/nginx"
@@ -23,6 +24,9 @@ RUN mkdir -p "$PATH_ZLIB" && curl -fsSL "$FILE_ZLIB" | tar zxv -C "$PATH_ZLIB" -
 ENV FILE_PCRE="http://ftp.pcre.org/pub/pcre/pcre-${VERSION_PCRE}.tar.gz"
 ENV PATH_PCRE="${BPATH}/pcre"
 RUN mkdir -p "$PATH_PCRE" && curl -fsSL "$FILE_PCRE" | tar zxv -C "$PATH_PCRE" --strip-components=1
+ENV FILE_MOD_FANCYINDEX="https://github.com/aperezdc/ngx-fancyindex/archive/v${VERSION_MOD_FANCYINDEX}.tar.gz"
+ENV PATH_MOD_FANCYINDEX="${BPATH}/ngx-fancyindex"
+RUN mkdir -p "$PATH_MOD_FANCYINDEX" && curl -fsSL "$FILE_MOD_FANCYINDEX" | tar zxv -C "$PATH_MOD_FANCYINDEX" --strip-components=1
 
 COPY ./scripts "$DIR_SCRIPTS"
 
