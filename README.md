@@ -14,7 +14,7 @@ This repository contains Dockerfile and build scripts for building a **small**, 
 
 ### Modules
 
-All modules has been removed to keep the footprint small (and more secure)
+* [ngx-fancyindex/0.4.3](https://github.com/aperezdc/ngx-fancyindex)
 
 ## Usage
 
